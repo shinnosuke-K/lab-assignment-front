@@ -1,10 +1,14 @@
 <template>
-    <p>login page</p>
+    <Card />
 </template>
 
 <script>
-export default {
+import Card from "@/components/loginCard"
 
+export default {
+    components: {
+        Card
+    },
 }
 </script>
 
