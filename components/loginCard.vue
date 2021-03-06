@@ -1,19 +1,11 @@
 <template>
-  <div class="card">
-      <form>
-        <p class="form-contents title">Login</p>
-        <div class="form-contents">
-            <UserForm />
-        </div>
-        <div class="form-contents">
-            <PasswordForm />
-        </div>
-        <div class="form-contents">
-            <button type="submit">Enter</button>
-        </div>
-        <p class="form-contents annotation">ログイン出来ない場合は e-class 経由でお知らせください</p>
-      </form>
-  </div>
+    <b-container class="justify-content-center card">
+        <b-col class="text title">Login</b-col>
+        <UserForm />
+        <PasswordForm />
+        <button @click="onClick">Enter</button>
+        <b-col class="text annotation">ログイン出来ない場合は e-class 経由でお知らせください</b-col>
+    </b-container>
 </template>
 
 <script>
@@ -24,33 +16,31 @@ export default {
     name: "Card",
     components: {
         UserForm,
-        PasswordForm,
-    }
+        PasswordForm
+    },
+    methods: {
+        onClick: (event)=> {
+            alert("Click!")
+        }
+    },
 }
 </script>
 
 <style scoped>
 .card {
-    padding: 0.5em 1em;
-    margin: 86px 20% 0 20%;
-    height: 100;
+    margin-top: 86px;
+    width:500px;
     box-shadow: 0 2px 8px 1px gray;
-    display: flex;
-    justify-content: center;
 }
 
-.form-contents {
+.text {
+    margin: 30px 0px;
     display: flex; /* 要素をFlexコンテナとして定義する */
     justify-content: center;/* flexアイテムの上下中央を指定する */
     align-items: center; /* flexアイxテムの左右中央を指定する */
 }
 
-.card p {
-    padding: 10px;
-    margin: 10px 20px 30px 40px;
-}
-
-.form-contents.title {
+.title {
     font-size: 2.5rem;
 }
 
@@ -59,8 +49,9 @@ export default {
 }
 
 .input-form {
-    margin: 0% 10% 30px 10%;
-    padding: 15px 50% 15px 0px;
+    margin: 0% 20% 30px 20%;
+    padding: 15px 0px;
+    border-style: none;
     border-bottom: solid 1px black;
     font-size: 1.5rem;
 }
@@ -77,12 +68,19 @@ button {
     font-size: 2rem;
     background-color: #F16272;
     color: white;
+    border: none;
     border-radius: 0.5rem;
-    padding: 10px 150px;
+    margin: 0% 20% 10px 20%;
+    padding: 15px 10px;
+    min-width: 100px;
 }
 
-.form-contents.annotation {
-    font-size: 1rem;
+button:hover {
+    opacity: 0.8;
+}
+
+.annotation {
+    font-size: 0.9rem;
     color: #666666;
 }
 

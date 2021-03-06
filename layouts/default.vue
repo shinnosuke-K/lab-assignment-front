@@ -17,6 +17,11 @@ export default {
 
 <style>
 html {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+body {
+  margin: 0px;
+}
+
 </style>

@@ -1,9 +1,15 @@
 <template>
-    <input type="text" class="input-form" placeholder="User ID">
+    <input @keydown.enter="onClick" type="text" class="text input-form" placeholder="User ID">
+    <!-- <b-form-input placeholder="User ID"></b-form-input> -->
 </template>
 
 <script>
 export default {
-    name: "userForm"
+    name: "userForm",
+    methods: {
+        onClick: (event)=> {
+            alert("Click!")
+        }
+    },
 }
 </script>
