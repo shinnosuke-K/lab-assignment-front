@@ -59,8 +59,8 @@ export default {
 }
 
 .input-form {
-    margin: 0px 0px 30px 0px;
-    padding: 15px 150px 15px 0px;
+    margin: 0% 10% 30px 10%;
+    padding: 15px 50% 15px 0px;
     border-bottom: solid 1px black;
     font-size: 1.5rem;
 }
