@@ -38,13 +38,46 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
     'bootstrap-vue/nuxt',
   ],
+  router: {
+    middleware: ['auth']
+  },
+
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      home: false,
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/api/auth/login', method: 'post' },
+          logout: { url: '/api/auth/logout', method: 'post' },
+          user: false,
+        }
+      }
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    // for development
+    proxy: true,
+    baseURL: 'http://localhost:8080',
+  },
+  proxy: {
+    '/api/auth/login': {
+      target: 'http://192.168.10.5:8080',
+      pathRewrite: {
+        '^/api/': '/'
+      },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
+      // Build Configuration: https://go.nuxtjs.dev/config-build
+      build: {
+      }
+    }
   }
 }
