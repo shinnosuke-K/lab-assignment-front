@@ -35,7 +35,7 @@ export default {
 }
 
 .red-check-mark {
-    height: 45px;
+    height: 40px;
     margin-right: 15px;
     margin-top: 15px;
 }
