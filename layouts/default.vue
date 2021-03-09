@@ -18,6 +18,7 @@ export default {
 <style>
 html {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 62.5%;
 }
 
 body {
