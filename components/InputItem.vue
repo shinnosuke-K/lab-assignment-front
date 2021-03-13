@@ -5,7 +5,6 @@
                 <p class="frame text professor">{{ item.professor }}</p>
                 <form class="input">
                     <img @click="decrement" class="frame icon" src="@/static/img/minux-icon.png" >
-                    <!-- <p class="frame text point">{{ item.point }}</p> -->
                     <input
                         class="frame text point"
                         type="text"

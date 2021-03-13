@@ -14,7 +14,6 @@
 <script>
 export default {
     name: "Card",
-    // middlerware: 'auth',
     data() {
         return {
             form: {
@@ -26,16 +25,10 @@ export default {
     },
     methods: {
         async onClick() {
-            console.log(this.$auth.loggedIn)
             this.$auth.loginWith('local', {data: this.form})
             .then((res) => {
-                console.log("Success")
-                console.log(this.$auth)
-                console.log(this.$auth.loggedIn)
                 this.$router.replace({path: '/lab'})
             }).catch((err) => {
-                console.log("Faild")
-                console.log(err.response)
                 this.show = !this.show
             });
         }
