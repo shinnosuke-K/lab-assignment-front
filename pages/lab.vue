@@ -9,7 +9,7 @@
                 :lab="lab"
                 :num="people.num"
             />
-            <nuxt-link to="/graduate">
+            <nuxt-link to="/graduate" class="float-right btn">
                 <ProgressButton :btn="{'word': '次へ'}"/>
             </nuxt-link>
         </div>
@@ -96,5 +96,11 @@ export default {
 
 .btn {
     display: flex;
+}
+
+.btn {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-right: 200px;
 }
 </style>
