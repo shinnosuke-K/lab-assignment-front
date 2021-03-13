@@ -3,11 +3,15 @@
         <div class="section">
             <Section :section="section" />
             <Precautions v-if="section.show" :people="people" />
-            <Item
+            <ItemCard
                 v-for="lab in laboratories"
                 :key="lab.name"
                 :lab="lab"
+                :num="people.num"
             />
+            <nuxt-link to="/graduate">
+                <ProgressButton :btn="{'word': '次へ'}"/>
+            </nuxt-link>
         </div>
     </b-container>
 </template>
@@ -15,14 +19,17 @@
 <script>
 import Section from '@/components/Section'
 import Precautions from '@/components/Precautions'
-import Item from '@/components/Item'
-
+import ItemCard from '@/components/ItemCard'
+import ProgressButton from '@/components/ProgressButton'
+import BackButton from '@/components/BackButton'
 
 export default {
     components: {
         Section,
         Precautions,
-        Item
+        ItemCard,
+        ProgressButton,
+        BackButton
     },
     data() {
         // vuexを利用する
@@ -85,5 +92,9 @@ export default {
 .section {
     border: solid 1px black;
     margin: 0% 100px;
+}
+
+.btn {
+    display: flex;
 }
 </style>
