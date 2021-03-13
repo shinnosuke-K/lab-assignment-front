@@ -4,7 +4,7 @@
         <p v-if="show" class="error">User ID もしくは Passwordが間違っています </p>
         <form @keydown.enter="onClick">
             <input @input="show = false" v-model="form.user_id" type="text" class="text input-form" placeholder="User ID"/>
-            <input @inpu="show = false" v-model="form.password" type="text" class="text input-form" placeholder="Password">
+            <input @input="show = false" v-model="form.password" type="text" class="text input-form" placeholder="Password">
         </form>
         <button @click="onClick">Enter</button>
         <b-col class="text annotation">ログイン出来ない場合は e-class 経由でお知らせください</b-col>
@@ -65,12 +65,12 @@ export default {
     color: red;
     display: flex; /* 要素をFlexコンテナとして定義する */
     justify-content: center;/* flexアイテムの上下中央を指定する */
-
+    font-size: 1.5rem;
 }
 
 .input-form {
     margin: 0% 20% 30px 20%;
-    padding: 15px 35px 15px 0px;
+    padding: 15px 100px 15px 0px;
     border-style: none;
     border-bottom: solid 1px black;
     font-size: 1.5rem;
@@ -79,7 +79,7 @@ export default {
 
 .input-form:focus {
     border-style: none;
-    border-bottom: solid 2px red;
+    border-bottom: none;
 }
 
 .input-form::placeholder {
