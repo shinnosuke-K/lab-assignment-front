@@ -1,13 +1,14 @@
 <template>
     <button>
         <img src="@/static/img/outline_chevron_left.png" alt="">
-        戻る
+        {{ btn.word }}
     </button>
 </template>
 
 <script>
 export default {
-    name: 'BackButton'
+    name: 'BackButton',
+    props: ['btn']
 }
 </script>
 
@@ -19,9 +20,16 @@ button {
     color: black;
     border: none;
     border-radius: 0.5rem;
-    margin: 5% 20% 5% 50%;
+    /* margin: 5% 20% 5% 20%; */
     padding: 15px 10px;
     min-width: 200px;
+    height: 65px;
+}
+
+img {
+    width: 24px;
+    height: 24px;
+    /* margin-bottom: 5px; */
 }
 
 </style>

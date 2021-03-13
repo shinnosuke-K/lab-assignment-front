@@ -19,9 +19,10 @@ button {
     color: white;
     border: none;
     border-radius: 0.5rem;
-    margin: 5% 20% 5% 50%;
+    /* margin: 5% 20% 5% 50%; */
     padding: 15px 10px;
     min-width: 200px;
+    height: 65px;
 }
 
 </style>
