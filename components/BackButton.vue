@@ -24,6 +24,11 @@ button {
     padding: 15px 10px;
     min-width: 200px;
     height: 65px;
+    pointer-events: none;
+}
+
+button:hover {
+    opacity: 0.5;
 }
 
 img {

@@ -1,7 +1,7 @@
 <template>
     <button>
         {{ btn.word }}
-        <img src="@/static/img/outline_chevron_right.png" alt="">
+        <img v-if="btn.show" src="@/static/img/outline_chevron_right.png" alt="">
     </button>
 </template>
 
@@ -23,6 +23,12 @@ button {
     padding: 15px 10px;
     min-width: 200px;
     height: 65px;
+    pointer-events: none;
+}
+
+button:hover {
+    opacity: 0.5;
+    /* border-style: none; */
 }
 
 </style>
