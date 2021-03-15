@@ -4,11 +4,11 @@
             <Section :section="section"/>
             <QuestionChoice />
             <div class="btns">
-                <nuxt-link to="/lab" class="btn">
+                <nuxt-link to="/lab" tag="div" class="btn">
                     <BackButton :btn="{'word': '戻る'}"/>
                 </nuxt-link>
-                <nuxt-link to="/save" class="btn">
-                    <ProgressButton :btn="{'word': '保存'}"/>
+                <nuxt-link to="/save" tag="div" class="btn">
+                    <ProgressButton :btn="{'word': '保存', 'show': true}"/>
                 </nuxt-link>
             </div>
 
@@ -35,6 +35,7 @@ export default {
             section: {
                 num: 2,
                 show: false,
+                fixShow: false,
             }
         }
     }

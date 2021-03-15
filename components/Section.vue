@@ -1,14 +1,25 @@
 <template>
     <div>
-        <p class="title">調査項目{{ section.num }}</p>
+        <div class="title">
+            <p>調査項目{{ section.num }}</p>
+            <nuxt-link v-if="section.fixShow" :to="`${section.route}`">
+                <FixButton />
+            </nuxt-link>
+        </div>
+
         <p class="supplement" v-if="section.show">{{ section.suuplement }}</p>
     </div>
 </template>
 
 <script>
+import FixButton from '@/components/FixButton'
+
 export default {
     name: 'Section',
-    props:['section']
+    components: {
+        FixButton,
+    },
+    props:['section'],
 }
 </script>
 
@@ -17,13 +28,15 @@ export default {
 .title {
     margin-top: 50px;
     padding-left: 40px;
-    padding-bottom: 10px;
     border-bottom: solid 1px black;
     font-size: 2.2rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .supplement {
     font-size: 1.8rem;
+    margin-top: 10px;
     padding: 0px 60px;
 }
 

@@ -10,7 +10,7 @@
                 :num="people.num"
             />
             <nuxt-link to="/graduate" class="float-right btn">
-                <ProgressButton :btn="{'word': '次へ'}"/>
+                <ProgressButton :btn="{'word': '次へ', 'show': true}"/>
             </nuxt-link>
         </div>
     </b-container>
@@ -37,6 +37,7 @@ export default {
             section: {
                 num: 1,
                 show: true,
+                fixShow: false,
                 suuplement: "研究室配属に関する希望を調査をします。"
             },
             people : {
@@ -83,6 +84,12 @@ export default {
                     ]
                 }
             ]
+        }
+    },
+    methods: {
+        show() {
+            console.log("lab:")
+            console.log(this.laboratories)
         }
     }
 }
