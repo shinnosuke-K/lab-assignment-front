@@ -1,24 +1,37 @@
 <template>
-    <div class="container">
-        <Section :section="section[0]" />
-        <Section :section="section[1]"/>
-    </div>
+    <b-container>
+        <div class="home">
+            <Section :section="section[0]" />
+            <ItemCard
+                v-for="lab in laboratories"
+                :key="lab.name"
+                :lab="lab"
+                :show="false"
+            />
+            <Section :section="section[1]"/>
+            <QuestionChoice :disabled="true"/>
+        </div>
+    </b-container>
 </template>
 
 <script>
 import Section from '@/components/Section'
+import ItemCard from '@/components/ItemCard'
+import QuestionChoice from '@/components/QuestionChoice'
 
 export default {
     name: 'Home',
     components: {
         Section,
+        ItemCard,
+        QuestionChoice,
     },
     data() {
         // vuexを使う
         return {
             section: [
-                {num: 1, show: false, fixShow: true, route: '/lab'},
-                {num: 2, show: false, fixShow: true, route: 'graduate'},
+                {num: 1, show: false, fixShow: true, route: '/lab/fix'},
+                {num: 2, show: false, fixShow: true, route: 'graduate/fix'},
             ],
             laboratories: [
                   {
@@ -60,12 +73,16 @@ export default {
                         },
                     ]
                 }
-            ]
+            ],
         }
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+.home {
+    border: solid 1px black;
+    margin: 0% 100px;
+    padding: 70px 0px;
+}
 </style>
