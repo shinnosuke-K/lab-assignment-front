@@ -4,14 +4,14 @@
             <b-row align-v="center">
                 <p class="frame text professor">{{ item.professor }}</p>
                 <form class="input">
-                    <img @click="decrement" class="frame icon" src="@/static/img/minux-icon.png" >
+                    <img v-if="show" @click="decrement" class="frame icon" src="@/static/img/minux-icon.png" >
                     <input
                         class="frame text point"
                         type="text"
                         inputmode="numeric"
                         pattern="\d*"
                         v-model="item.point">
-                    <img @click="increment" class="frame icon" src="@/static/img/plus-icon.png" >
+                    <img v-if="show" @click="increment" class="frame icon" src="@/static/img/plus-icon.png" >
                 </form>
             </b-row>
     </b-container>
@@ -24,7 +24,7 @@
 export default {
     name: 'InputItem',
     // vuexにする
-    props: ['item', 'num'],
+    props: ['item', 'num', 'show'],
 
     methods: {
         increment() {

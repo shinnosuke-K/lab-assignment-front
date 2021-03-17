@@ -7,6 +7,7 @@
                 :key="item.professor"
                 :item="item"
                 :num='num'
+                :show='show'
             />
         </div>
     </div>
@@ -21,7 +22,7 @@ export default {
         InputItem,
     },
     // vuexにする
-    props: ["lab", 'num'],
+    props: ["lab", 'num', 'show'],
 };
 </script>
 
@@ -30,6 +31,8 @@ export default {
     display: flex; /* 要素をFlexコンテナとして定義する */
     justify-content: center; /* flexアイテムの上下中央を指定する */
     align-items: center; /* flexアイxテムの左右中央を指定する */
+    height: auto;
+    top: 0;
 }
 
 .contents {
