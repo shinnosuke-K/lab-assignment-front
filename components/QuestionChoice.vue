@@ -4,12 +4,12 @@
         <div class="container">
             <ul>
                 <li>
-                    <input v-model="selected" type="radio" id="f-option" value="1"/>
+                    <input v-model="selected" :disabled="disabled" type="radio" id="f-option" value="1"/>
                     <label for="f-option">希望する</label>
                     <div class="check"></div>
                 </li>
                 <li>
-                    <input v-model="selected" type="radio" id="s-option" value="0" />
+                    <input v-model="selected" :disabled="disabled" type="radio" id="s-option" value="0" />
                     <label for="s-option">希望しない</label>
                     <div class="check"><div class="inside"></div></div>
                 </li>
@@ -21,6 +21,7 @@
 <script>
 export default {
     name: "QuestionChoice",
+    props: ['disabled'],
     data() {
         return {
             selected: 0
@@ -32,6 +33,7 @@ export default {
 <style scoped>
 .question {
     font-size: 1.8rem;
+    margin-top: 10px;
     padding: 0px 100px;
 }
 
@@ -80,13 +82,13 @@ ul li label{
 }
 
 ul li:hover label{
-  color: black;
+  color: #AAAAAA;
 }
 
 ul li .check{
   display: block;
   position: absolute;
-  border: 5px solid #AAAAAA;
+  border: 5px solid grey;
   border-radius: 100%;
   height: 25px;
   width: 25px;
@@ -98,7 +100,7 @@ ul li .check{
 }
 
 ul li:hover .check {
-  border: 5px solid grey;
+  border: 5px solid #AAAAAA;
 }
 
 ul li .check::before {
