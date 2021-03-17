@@ -1,16 +1,16 @@
 <template>
   <div>
-    <LoginedHeader />
+    <Header />
     <Nuxt />
   </div>
 </template>
 
 <script>
-import LoginedHeader from '@/components/LoginedHeader'
+import Header from '@/components/Header'
 
 export default {
   components: {
-    LoginedHeader,
+    Header,
   }
 }
 </script>
