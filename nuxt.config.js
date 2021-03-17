@@ -53,10 +53,14 @@ export default {
     },
     strategies: {
       local: {
+        token: {
+          required: false,
+          type: false
+        },
         endpoints: {
           login: { url: '/api/auth/login', method: 'post' },
           logout: { url: '/api/auth/logout', method: 'post' },
-          user: false,
+          user: false
         }
       }
     }
@@ -69,7 +73,7 @@ export default {
     baseURL: 'http://localhost:8080',
   },
   proxy: {
-    '/api/auth/login': {
+    '/api/auth/*': {
       target: 'http://192.168.10.5:8080',
       pathRewrite: {
         '^/api/': '/'
