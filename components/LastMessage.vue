@@ -16,8 +16,7 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
 .content {
     display: flex; /* 要素をFlexコンテナとして定義する */
     justify-content: center;/* flexアイテムの上下中央を指定する */
