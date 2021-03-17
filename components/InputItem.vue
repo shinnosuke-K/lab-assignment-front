@@ -78,7 +78,8 @@ export default {
 }
 
 .point {
-    width: 100px
+    width: 100px;
+    margin-bottom: 10px;
 }
 
 .input {
