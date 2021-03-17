@@ -25,13 +25,19 @@ export default {
     },
     methods: {
         async onClick() {
-            this.$auth.loginWith('local', {data: this.form})
+            await this.$auth.loginWith('local', {data: this.form})
             .then((res) => {
+                if (res.data.user.entered) {
+                    this.$router.replace({path: '/home'})
+                    return
+                }
                 this.$router.replace({path: '/lab'})
-            }).catch((err) => {
+                return
+
+            }).catch(() => {
                 this.show = !this.show
             });
-        }
+        },
     },
 }
 </script>
