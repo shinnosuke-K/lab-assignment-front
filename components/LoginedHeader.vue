@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <img src="@/static/img/logo.png" alt="site logo" />
-        <p class="logout" @click="logout">ログアウト</p>
+        <p class="logout" @click.prevent="onClick">ログアウト</p>
     </div>
 </template>
 
@@ -9,10 +9,8 @@
 export default {
     name: "LoginedHeader",
     methods: {
-        logout() {
-            this.$auth.logout().then(() => {
-                this.$router.replace({path: '/login'})
-            })
+        onClick() {
+            this.$auth.logout()
         }
     }
 }
