@@ -12,6 +12,7 @@
 </template>
 
 <script>
+
 export default {
     name: "Card",
     data() {
@@ -27,6 +28,9 @@ export default {
         async onClick() {
             await this.$auth.loginWith('local', {data: this.form})
             .then((res) => {
+                console.log(res.data)
+                this.$store.dispatch('getQuestionState')
+
                 if (res.data.user.entered) {
                     this.$router.replace({path: '/home'})
                     return

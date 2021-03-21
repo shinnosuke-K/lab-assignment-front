@@ -3,7 +3,7 @@
         <div class="home">
             <Section :section="section[0]" />
             <ItemCard
-                v-for="lab in laboratories"
+                v-for="lab in labInfos"
                 :key="lab.name"
                 :lab="lab"
                 :show="false"
@@ -19,6 +19,9 @@ import Section from '@/components/Section'
 import ItemCard from '@/components/ItemCard'
 import QuestionChoice from '@/components/QuestionChoice'
 
+import { mapGetters } from 'vuex'
+
+
 export default {
     name: 'Home',
     components: {
@@ -26,53 +29,17 @@ export default {
         ItemCard,
         QuestionChoice,
     },
+    computed: {
+        ...mapGetters([
+            'labInfos'
+        ]),
+    },
+
     data() {
-        // vuexを使う
         return {
             section: [
                 {num: 1, show: false, fixShow: true, route: '/lab/fix'},
                 {num: 2, show: false, fixShow: true, route: 'graduate/fix'},
-            ],
-            laboratories: [
-                  {
-                    name: "応用メディア情報研究室",
-                    menbers: [
-                        {
-                            professor: "大久保",
-                            point: 0,
-                        },
-                        {
-                            professor: "土屋",
-                            point: 0,
-                        },
-                        {
-                            professor: "井本",
-                            point: 0,
-                        }
-                    ]
-                },
-                {
-                    name: "ネットワーク情報システム研究室",
-                    menbers: [
-                        {
-                            professor: "佐藤",
-                            point: 0,
-                        },
-                        {
-                            professor: "小板",
-                            point: 0,
-                        }
-                    ]
-                },
-                  {
-                    name: "知識メカトロ情報システム研究室",
-                    menbers: [
-                        {
-                            professor: "高橋",
-                            point: 0,
-                        },
-                    ]
-                }
             ],
         }
     }

@@ -2,12 +2,11 @@
     <b-container>
         <div class="section">
             <Section :section="section" />
-            <Precautions v-if="section.show" :people="people" />
+            <Precautions v-if="section.show" />
             <ItemCard
-                v-for="lab in laboratories"
+                v-for="lab in labInfos"
                 :key="lab.name"
                 :lab="lab"
-                :num="people.num"
                 :show="true"
             />
 
@@ -31,6 +30,8 @@ import ItemCard from '@/components/ItemCard'
 import ProgressButton from '@/components/ProgressButton'
 import BackButton from '@/components/BackButton'
 
+import { mapGetters } from 'vuex'
+
 export default {
     components: {
         Section,
@@ -38,6 +39,12 @@ export default {
         ItemCard,
         ProgressButton,
         BackButton
+    },
+    computed: {
+        ...mapGetters([
+            'people',
+            'labInfos'
+        ]),
     },
     data() {
         // vuexを利用する
@@ -48,50 +55,6 @@ export default {
                 fixShow: false,
                 suuplement: "研究室配属に関する希望を調査をします。"
             },
-            people : {
-                num: 11,
-            },
-            laboratories: [
-                  {
-                    name: "応用メディア情報研究室",
-                    menbers: [
-                        {
-                            professor: "大久保",
-                            point: 0,
-                        },
-                        {
-                            professor: "土屋",
-                            point: 0,
-                        },
-                        {
-                            professor: "井本",
-                            point: 0,
-                        }
-                    ]
-                },
-                {
-                    name: "ネットワーク情報システム研究室",
-                    menbers: [
-                        {
-                            professor: "佐藤",
-                            point: 0,
-                        },
-                        {
-                            professor: "小板",
-                            point: 0,
-                        }
-                    ]
-                },
-                  {
-                    name: "知識メカトロ情報システム研究室",
-                    menbers: [
-                        {
-                            professor: "高橋",
-                            point: 0,
-                        },
-                    ]
-                }
-            ]
         }
     },
     methods: {

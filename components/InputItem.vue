@@ -2,16 +2,16 @@
     <div class="container">
         <b-container>
             <b-row align-v="center">
-                <p class="frame text professor">{{ item.professor }}</p>
+                <p class="frame text professor">{{ this.prof.name }}</p>
                 <form class="input">
-                    <img v-if="show" @click="decrement" class="frame icon" src="@/static/img/minux-icon.png" >
+                    <img v-if="show" @click="decrement()" class="frame icon" src="@/static/img/minux-icon.png" >
                     <input
                         class="frame text point"
                         type="text"
                         inputmode="numeric"
                         pattern="\d*"
-                        v-model="item.point">
-                    <img v-if="show" @click="increment" class="frame icon" src="@/static/img/plus-icon.png" >
+                        v-model="point">
+                    <img v-if="show" @click="increment()" class="frame icon" src="@/static/img/plus-icon.png" >
                 </form>
             </b-row>
     </b-container>
@@ -23,25 +23,32 @@
 <script>
 export default {
     name: 'InputItem',
-    // vuexにする
-    props: ['item', 'num', 'show'],
+    props: ['labName','prof', 'index', 'show'],
+    computed: {
+        point: {
+            get() {
+                return this.prof.point
+            }
+        }
+    },
 
     methods: {
         increment() {
-            const inputPoint = parseInt(this.item.point) - (100 - this.num + 2)
-            if (inputPoint < 0) {
-                this.item.point = parseInt(this.item.point) + 1;
-            } else if (this.item.point === "") {
-                this.item.point = 1
-            }
+            // const inputPoint = parseInt(this.prof.point) - (100 - this.$store.getters.people.num + 2)
+            // if (inputPoint < 0) {
+            //     this.prof.point = String(parseInt(this.prof.point) + 1);
+            // } else if (this.prof.point === "") {
+            //     this.prof.point = "1"
+            // }
+            console.log(this.labName)
         },
-        decrement() {
-            if (Number(this.item.point) >= 1) {
-                this.item.point = Number(this.item.point) - 1;
-            } else if (this.item.point === "") {
-                this.item.point = 0
-            }
-        }
+        // decrement() {
+            // if (Number(this.prof.point) >= 1) {
+            //     this.prof.point = String(parseInt(this.prof.point) - 1);
+            // } else if (this.prof.point === "") {
+            //     this.prof.point = "0"
+            // }
+        // }
     }
 }
 </script>
@@ -50,10 +57,10 @@ export default {
 .container {
     display: flex; /* 要素をFlexコンテナとして定義する */
     justify-content: center; /* flexアイテムの上下中央を指定する */
-    align-items: center; /* flexアイxテムの左右中央を指定する */
+    align-profs: center; /* flexアイxテムの左右中央を指定する */
 }
 
-.item {
+.prof {
     display: flex;
 }
 
@@ -69,7 +76,7 @@ export default {
     text-align: center;
     display: flex; /* 要素をFlexコンテナとして定義する */
     justify-content: center; /* flexアイテムの上下中央を指定する */
-    align-items: center; /* flexアイxテムの左右中央を指定する */
+    align-profs: center; /* flexアイxテムの左右中央を指定する */
 }
 
 .professor {

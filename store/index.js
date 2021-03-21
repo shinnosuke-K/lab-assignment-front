@@ -1,80 +1,69 @@
 export const state = () => ({
     user_id: "",
-    people: { num: 0 },
+    people: {},
     laboratories: [],
-    graduate: 0,
+    graduate: "0",
 })
 
-export const getters = {
-    userID(state) {
-        return state.user_id
-    },
-    numOfPeople(state) {
-        return state.people.num
-    },
-    labInfos(state) {
-        return state.laboratories
-    }
-}
-
-export const action = {
-    getQuestionState({ commit }) {
+export const actions = {
+    async getQuestionState({ commit }) {
         const states = {
             user_id: "12345",
             people: {
                 num: 11,
             },
-            graduaate: 0,
+            graduaate: "0",
             labs: [
                 {
                     name: "応用メディア情報研究室",
-                    menbers: [
+                    professors: [
                         {
-                            professor: "大久保",
-                            point: 0,
+                            name: "大久保",
+                            point: "0",
                         },
                         {
-                            professor: "土屋",
-                            point: 0,
+                            name: "土屋",
+                            point: "0",
                         },
                         {
-                            professor: "井本",
-                            point: 0,
+                            name: "井本",
+                            point: "0",
                         }
                     ]
                 },
                 {
                     name: "ネットワーク情報システム研究室",
-                    menbers: [
+                    professors: [
                         {
-                            professor: "佐藤",
-                            point: 0,
+                            name: "佐藤",
+                            point: "0",
                         },
                         {
-                            professor: "小板",
-                            point: 0,
+                            name: "小板",
+                            point: "0",
                         }
                     ]
                 },
                 {
                     name: "知識メカトロ情報システム研究室",
-                    menbers: [
+                    professors: [
                         {
-                            professor: "高橋",
-                            point: 0,
+                            name: "高橋",
+                            point: "0",
                         },
                     ]
                 }
             ]
         }
-        commit('setLabInfos', states.labs)
-        commit('setGraduate', states.graduaate)
-        commit('setNumber', states.people)
-        commit('setUserID', states.user_id)
+
+        await commit('setLabInfos', states.labs)
+        await commit('setGraduate', states.graduaate)
+        await commit('setNumber', states.people)
+        await commit('setUserID', states.user_id)
     }
 }
 
-export const mutation = {
+export const mutations = {
     setLabInfos(state, labs) {
         state.laboratories = labs
     },
@@ -86,6 +75,25 @@ export const mutation = {
     },
     setUserID(state, user_id) {
         state.user_id = user_id
+    },
+    increment(state, { lab, name }) {
+        let labprofessors = state.laboratories.find(lab => lab.name === lab)
+        let professor = labprofessors.find(p => p.name === name)
+
+    },
+    decrement(state) {
+
     }
 }
 
+export const getters = {
+    userID(state) {
+        return state.user_id
+    },
+    people(state) {
+        return state.people
+    },
+    labInfos(state) {
+        return state.laboratories
+    }
+}

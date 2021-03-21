@@ -5,7 +5,7 @@
             <p class="text">
             配属希望教員の優先度をポイントで入力してください。<br>
             合計100ポイントとし、教員に対してのポイントの割り当ては自由。<br>
-            ただし、{{ people.num - 1}}名以上（{{ people.num }}名中）の教員に対してのポイントを割り当ててください。<br>
+            ただし、{{ num - 1 }}名以上（{{ num }}名中）の教員に対してのポイントを割り当ててください。<br>
             すべての教員に割り当てたポイントの合計が100ポイントを超えてはいけません。
             </p>
         </div>
@@ -15,7 +15,13 @@
 <script>
 export default {
     name: 'Precoutions',
-    props: ['people']
+    computed: {
+        num: {
+            get() {
+                return this.$store.getters.people.num
+            }
+        }
+    }
 }
 </script>
 

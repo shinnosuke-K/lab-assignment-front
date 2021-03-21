@@ -3,10 +3,11 @@
         <div class="contents">
            <p class="lab">{{ lab.name }}</p>
             <InputItem
-                v-for="item in lab.menbers"
-                :key="item.professor"
-                :item="item"
-                :num='num'
+                v-for="(prof, name, index) in lab.professors"
+                :key="prof.name"
+                :labName="lab.name"
+                :prof="prof"
+                :index="index"
                 :show='show'
             />
         </div>
@@ -17,12 +18,12 @@
 import InputItem from "@/components/InputItem";
 
 export default {
-    name: "ItemCard",
+    name: "profCard",
     components: {
         InputItem,
     },
     // vuexにする
-    props: ["lab", 'num', 'show'],
+    props: ["lab", 'show'],
 };
 </script>
 
