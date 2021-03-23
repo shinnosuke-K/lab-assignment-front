@@ -1,7 +1,7 @@
 export const state = () => ({
     user_id: "",
     people: {},
-    laboratories: [],
+    labs: [],
     graduate: "0",
 })
 
@@ -65,7 +65,7 @@ export const actions = {
 
 export const mutations = {
     setLabInfos(state, labs) {
-        state.laboratories = labs
+        state.labs = labs
     },
     setGraduate(state, which) {
         state.graduate = which
@@ -76,13 +76,16 @@ export const mutations = {
     setUserID(state, user_id) {
         state.user_id = user_id
     },
-    increment(state, { lab, name }) {
-        let labprofessors = state.laboratories.find(lab => lab.name === lab)
-        let professor = labprofessors.find(p => p.name === name)
+    increment(state, { labName, name }) {
+        let profs = state.labs.find(lab => lab.name === labName)
+        let prof = profs.professors.find(p => p.name === name)
+        prof.point++
 
     },
-    decrement(state) {
-
+    decrement(state, { labName, name }) {
+        let profs = state.labs.find(lab => lab.name === labName)
+        let prof = profs.professors.find(p => p.name === name)
+        prof.point--
     }
 }
 
@@ -94,6 +97,6 @@ export const getters = {
         return state.people
     },
     labInfos(state) {
-        return state.laboratories
+        return state.labs
     }
 }

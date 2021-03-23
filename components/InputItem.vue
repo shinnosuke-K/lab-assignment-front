@@ -34,13 +34,14 @@ export default {
 
     methods: {
         increment() {
+            this.$store.commit('increment', {labName: this.labName, name: this.prof.name})
             // const inputPoint = parseInt(this.prof.point) - (100 - this.$store.getters.people.num + 2)
             // if (inputPoint < 0) {
             //     this.prof.point = String(parseInt(this.prof.point) + 1);
             // } else if (this.prof.point === "") {
             //     this.prof.point = "1"
             // }
-            console.log(this.labName)
+            // console.log(this.labName)
         },
         // decrement() {
             // if (Number(this.prof.point) >= 1) {
