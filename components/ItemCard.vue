@@ -3,11 +3,10 @@
         <div class="contents">
            <p class="lab">{{ lab.name }}</p>
             <InputItem
-                v-for="(prof, name, index) in lab.professors"
+                v-for="prof in lab.professors"
                 :key="prof.name"
                 :labName="lab.name"
                 :prof="prof"
-                :index="index"
                 :show='show'
             />
         </div>
