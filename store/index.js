@@ -86,6 +86,11 @@ export const mutations = {
         let profs = state.labs.find(lab => lab.name === labName)
         let prof = profs.professors.find(p => p.name === name)
         prof.point--
+    },
+    setPoint(state, { labName, name, point }) {
+        let profs = state.labs.find(lab => lab.name === labName)
+        let prof = profs.professors.find(p => p.name === name)
+        prof.point = point
     }
 }
 
