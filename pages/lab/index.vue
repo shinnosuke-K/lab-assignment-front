@@ -41,7 +41,6 @@ export default {
         ]),
     },
     data() {
-        // vuexを利用する
         return {
             section: {
                 num: 1,
