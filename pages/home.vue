@@ -39,7 +39,7 @@ export default {
         return {
             section: [
                 {num: 1, show: false, fixShow: true, route: '/lab/fix'},
-                {num: 2, show: false, fixShow: true, route: 'graduate/fix'},
+                {num: 2, show: false, fixShow: true, route: '/graduate/fix'},
             ],
         }
     }
