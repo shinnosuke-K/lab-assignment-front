@@ -24,8 +24,13 @@ export default {
     props: ['disabled'],
     data() {
         return {
-            selected: 0
+            selected: this.$store.getters.graduate
         }
+    },
+    watch: {
+      selected(which) {
+        this.$store.commit('setGraduate', which)
+      }
     }
 };
 </script>
