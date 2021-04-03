@@ -15,7 +15,7 @@
                         <BackButton :btn="{'word': '戻る'}"/>
                 </nuxt-link>
 
-                <nuxt-link  @click.native="show" to="/home" class="btn">
+                <nuxt-link to="/home" class="btn">
                     <ProgressButton :btn="{'word': '保存', 'show': false}"/>
                 </nuxt-link>
             </div>
@@ -42,12 +42,10 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'people',
             'labInfos'
         ]),
     },
     data() {
-        // vuexを利用する
         return {
             section: {
                 num: '1・修正',
@@ -57,12 +55,6 @@ export default {
             },
         }
     },
-    methods: {
-        show() {
-            console.log("lab:")
-            console.log(this.laboratories)
-        }
-    }
 }
 </script>
 

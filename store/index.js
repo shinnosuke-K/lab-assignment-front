@@ -12,7 +12,7 @@ export const actions = {
             people: {
                 num: 11,
             },
-            graduaate: "0",
+            graduate: "0",
             labs: [
                 {
                     name: "応用メディア情報研究室",
@@ -57,13 +57,12 @@ export const actions = {
         }
 
         await commit('setLabInfos', states.labs)
-        await commit('setGraduate', states.graduaate)
+        await commit('setGraduate', states.graduate)
         await commit('setNumber', states.people)
         await commit('setUserID', states.user_id)
     },
     calcScore() {
         let score = 0
-        console.log(this.state.labs)
         this.state.labs.forEach(element => {
             element.professors.forEach(el => {
                 score += el.point        
@@ -113,5 +112,8 @@ export const getters = {
     },
     labInfos(state) {
         return state.labs
+    },
+    graduate(state) {
+        return state.graduate
     }
 }
