@@ -70,11 +70,13 @@ export default {
   axios: {
     // for development
     proxy: true,
-    baseURL: 'http://localhost:8080',
+    // baseURL: 'http://localhost:8080',
+    baseURL: 'http://lab-backend:8080',
   },
   proxy: {
     '/api/auth/*': {
-      target: 'http://192.168.10.5:8080',
+      // target: 'http://192.168.10.5:8080',
+      target: 'http://lab-backend:8080',
       pathRewrite: {
         '^/api/': '/'
       },
