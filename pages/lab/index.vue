@@ -52,7 +52,9 @@ export default {
     },
     methods: {
         score(){
-            console.log(this.$store.dispatch('calcScore'))
+            this.$store.dispatch('calcScore').then((score) => {
+                // console.log(score)
+            })
         }
     },
 }
