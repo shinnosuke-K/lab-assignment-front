@@ -60,6 +60,16 @@ export const actions = {
         await commit('setGraduate', states.graduaate)
         await commit('setNumber', states.people)
         await commit('setUserID', states.user_id)
+    },
+    calcScore() {
+        let score = 0
+        console.log(this.state.labs)
+        this.state.labs.forEach(element => {
+            element.professors.forEach(el => {
+                score += el.point        
+            })
+        });
+        return score
     }
 }
 

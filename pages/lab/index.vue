@@ -9,7 +9,7 @@
                 :lab="lab"
                 :show="true"
             />
-            <nuxt-link to="/graduate" class="float-right btn">
+            <nuxt-link to="/graduate" @click.native="score" class="float-right btn">
                 <ProgressButton :btn="{'word': '次へ', 'show': true}"/>
             </nuxt-link>
         </div>
@@ -48,6 +48,11 @@ export default {
                 fixShow: false,
                 suuplement: "研究室配属に関する希望を調査をします。"
             },
+        }
+    },
+    methods: {
+        score(){
+            console.log(this.$store.dispatch('calcScore'))
         }
     },
 }
