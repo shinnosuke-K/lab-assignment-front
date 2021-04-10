@@ -80,10 +80,9 @@ export default {
       pathRewrite: {
         '^/api/': '/'
       },
-
-      // Build Configuration: https://go.nuxtjs.dev/config-build
-      build: {
-      }
+    },
+    '/lab/*': {
+      target: 'http://lab-backend:8080',
     }
   }
 }
