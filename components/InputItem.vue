@@ -16,8 +16,6 @@
             </b-row>
     </b-container>
     </div>
-
-
 </template>
 
 <script>
@@ -28,21 +26,22 @@ export default {
         point: {
             get() {
                 return this.prof.point
-            }
+            },
         }
     },
 
     methods: {
         increment() {
-            const inputPoint = parseInt(this.prof.point) - (100 - this.$store.getters.people.num + 2)
-            if (inputPoint < 0) {
-                this.$store.commit('increment', {labName: this.labName, name: this.prof.name})
-            } else if (this.prof.point === "") {
-                this.$store.commit('setPoint', {labName: this.labName, name: this.prof.name, point: 1})
-            }
+            this.$store.dispatch('calcScore').then((score) => {
+                if (score < 100) {
+                    this.$store.commit('increment', {labName: this.labName, name: this.prof.name})
+                } else if (this.prof.point === "") {
+                    this.$store.commit('setPoint', {labName: this.labName, name: this.prof.name, point: 1})
+                }
+            })
         },
         decrement() {
-            if (Number(this.prof.point) >= 1) {
+            if (this.prof.point >= 1) {
                 this.$store.commit('decrement', {labName: this.labName, name: this.prof.name})
             } else if (this.prof.point === "") {
                 this.$store.commit('setPoint', {labName: this.labName, name: this.prof.name, point: 0})
