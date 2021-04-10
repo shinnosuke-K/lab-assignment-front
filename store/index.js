@@ -2,7 +2,7 @@ export const state = () => ({
     user_id: "",
     people: {},
     labs: [],
-    graduate: "0",
+    graduate: 0,
 })
 
 export const actions = {
@@ -12,22 +12,22 @@ export const actions = {
             people: {
                 num: 11,
             },
-            graduate: "0",
+            graduate: 0,
             labs: [
                 {
                     name: "応用メディア情報研究室",
                     professors: [
                         {
                             name: "大久保",
-                            point: "0",
+                            point: 0,
                         },
                         {
                             name: "土屋",
-                            point: "0",
+                            point: 0,
                         },
                         {
                             name: "井本",
-                            point: "0",
+                            point: 0,
                         }
                     ]
                 },
@@ -36,11 +36,11 @@ export const actions = {
                     professors: [
                         {
                             name: "佐藤",
-                            point: "0",
+                            point: 0,
                         },
                         {
                             name: "小板",
-                            point: "0",
+                            point: 0,
                         }
                     ]
                 },
@@ -49,7 +49,7 @@ export const actions = {
                     professors: [
                         {
                             name: "高橋",
-                            point: "0",
+                            point: 0,
                         },
                     ]
                 }
