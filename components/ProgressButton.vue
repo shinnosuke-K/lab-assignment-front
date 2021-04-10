@@ -1,5 +1,5 @@
 <template>
-    <button>
+    <button id="s" @click="save">
         {{ btn.word }}
         <img v-if="btn.show" src="@/static/img/outline_chevron_right.png" alt="">
     </button>
@@ -8,7 +8,14 @@
 <script>
 export default {
     name: 'ProgressButton',
-    props: ['btn']
+    props: ['btn'],
+    methods: {
+        save() {
+            console.log(this.btn)
+            return false
+            this.$router.replace({path: this.btn.to})
+        }
+    }
 }
 </script>
 
@@ -23,7 +30,7 @@ button {
     padding: 15px 10px;
     min-width: 200px;
     height: 65px;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 button:hover {

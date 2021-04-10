@@ -9,9 +9,9 @@
                 :lab="lab"
                 :show="true"
             />
-            <nuxt-link to="/graduate" @click.native="score" class="float-right btn">
-                <ProgressButton :btn="{'word': '次へ', 'show': true}"/>
-            </nuxt-link>
+            <div class="float-right btn">
+                <ProgressButton :btn="{'word': '次へ', 'show': true, 'func': 'check', 'to': '/graduate' }"/>
+            </div>
         </div>
     </b-container>
 </template>
@@ -53,8 +53,9 @@ export default {
     methods: {
         score(){
             this.$store.dispatch('calcScore').then((score) => {
-                // console.log(score)
+                console.log(score)
             })
+            return false
         }
     },
 }

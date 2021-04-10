@@ -30,6 +30,8 @@ export default {
             .then((res) => {
                 this.$store.dispatch('getQuestionState')
 
+                console.log(res)
+
                 if (res.data.user.entered) {
                     this.$router.replace({path: '/home'})
                     return
@@ -37,7 +39,8 @@ export default {
                 this.$router.replace({path: '/lab'})
                 return
 
-            }).catch(() => {
+            }).catch((err) => {
+                console.log(err)
                 this.show = !this.show
             });
         },

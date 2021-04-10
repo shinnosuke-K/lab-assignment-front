@@ -24,7 +24,7 @@ button {
     padding: 15px 10px;
     min-width: 200px;
     height: 65px;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 button:hover {

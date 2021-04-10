@@ -5,9 +5,9 @@
                 <img src="@/static/img/green-check-mark.png" alt="">
             </div>
             <LastMessage />
-            <nuxt-link to="/home" tag="div" class="btn">
-                <ProgressButton :btn="{'word': 'ホームへ', 'show': false}" />
-            </nuxt-link>
+            <div class="btn">
+                <ProgressButton :btn="{'word': 'ホームへ', 'show': false, 'to': '/home'}" />
+            </div>
         </div>
     </b-container>
 </template>
@@ -21,11 +21,6 @@ export default {
         LastMessage,
         ProgressButton
     },
-    methods: {
-        close() {
-            window.close()
-        }
-    }
 }
 </script>
 

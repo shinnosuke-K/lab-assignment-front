@@ -15,9 +15,9 @@
                         <BackButton :btn="{'word': '戻る'}"/>
                 </nuxt-link>
 
-                <nuxt-link to="/home" class="btn">
-                    <ProgressButton :btn="{'word': '保存', 'show': false}"/>
-                </nuxt-link>
+                <div class="btn">
+                    <ProgressButton :btn="{'word': '保存', 'show': false, 'func': 'saveLav', 'to': '/home'}"/>
+                </div>
             </div>
         </div>
     </b-container>

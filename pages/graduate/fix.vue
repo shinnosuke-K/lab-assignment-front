@@ -7,9 +7,9 @@
                 <nuxt-link to="/home" tag="div" class="btn">
                     <BackButton :btn="{'word': '戻る'}"/>
                 </nuxt-link>
-                <nuxt-link to="/home" tag="div" class="btn">
-                    <ProgressButton :btn="{'word': '保存', 'show': false}"/>
-                </nuxt-link>
+                <div class="btn">
+                    <ProgressButton :btn="{'word': '保存', 'show': false, 'func': 'saveGra', 'to': '/home'}"/>
+                </div>
             </div>
 
         </div>
