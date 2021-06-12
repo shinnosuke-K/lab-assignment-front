@@ -1,6 +1,5 @@
 export const state = () => ({
     user_id: "",
-    people: {},
     labs: [],
     graduate: 0,
 })
@@ -9,9 +8,6 @@ export const actions = {
     async getQuestionState({ commit }) {
         const states = {
             user_id: "12345",
-            people: {
-                num: 11,
-            },
             graduate: 0,
             labs: [
                 {
@@ -58,7 +54,6 @@ export const actions = {
 
         await commit('setLabInfos', states.labs)
         await commit('setGraduate', states.graduate)
-        await commit('setNumber', states.people)
         await commit('setUserID', states.user_id)
     },
     calcScore() {
@@ -69,7 +64,7 @@ export const actions = {
             })
         });
         return score
-    }
+    },
 }
 
 export const mutations = {
@@ -78,9 +73,6 @@ export const mutations = {
     },
     setGraduate(state, which) {
         state.graduate = which
-    },
-    setNumber(state, people) {
-        state.people = people
     },
     setUserID(state, user_id) {
         state.user_id = user_id
@@ -107,13 +99,13 @@ export const getters = {
     userID(state) {
         return state.user_id
     },
-    people(state) {
-        return state.people
-    },
     labInfos(state) {
         return state.labs
     },
     graduate(state) {
         return state.graduate
+    },
+    getNumOfLabs(state) {
+        return state.labs.length
     }
 }

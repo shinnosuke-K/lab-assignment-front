@@ -16,10 +16,13 @@
 export default {
     name: 'Precoutions',
     computed: {
+        ...mapGetters([
+            'getNumOfLabs',
+        ]),
         num: {
             get() {
-                return this.$store.getters.people.num
-            }
+                return getNumOfLabs
+            },
         }
     }
 }

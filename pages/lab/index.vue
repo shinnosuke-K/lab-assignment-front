@@ -2,7 +2,7 @@
     <b-container>
         <div class="section">
             <Section :section="section" />
-            <Precautions v-if="section.show" :people="people.num" />
+            <Precautions v-if="section.show" />
             <ItemCard
                 v-for="lab in labInfos"
                 :key="lab.name"
