@@ -78,7 +78,7 @@ export default {
       // target: 'http://192.168.10.5:8080',
       target: 'http://lab-backend:8080',
       pathRewrite: {
-        '^/api/': '/'
+        '^/api/auth': '/'
       },
     },
     '/lab/*': {
