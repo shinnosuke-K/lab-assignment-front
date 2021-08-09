@@ -8,7 +8,7 @@
                     <BackButton :btn="{'word': '戻る'}"/>
                 </nuxt-link>
                 <div class="btn">
-                    <ProgressButton :btn="{'word': '保存', 'show': true, 'func': 'saveAll','to': '/save'}"/>
+                    <ProgressButton :btn="{'word': '保存', 'show': true, 'func': 'saveGra','to': '/save'}"/>
                 </div>
             </div>
         </div>

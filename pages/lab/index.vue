@@ -10,7 +10,7 @@
                 :show="true"
             />
             <div class="float-right btn">
-                <ProgressButton :btn="{'word': '次へ', 'show': true, 'func': 'check', 'to': '/graduate' }"/>
+                <ProgressButton :btn="{'word': '次へ', 'show': true, 'func': 'saveLab', 'to': '/graduate' }"/>
             </div>
         </div>
     </b-container>
@@ -36,7 +36,6 @@ export default {
     computed: {
         ...mapGetters([
             'userID',
-            'people',
             'labInfos'
         ]),
     },

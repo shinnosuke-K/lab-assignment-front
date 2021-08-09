@@ -6,7 +6,7 @@
             </div>
             <LastMessage />
             <div class="btn">
-                <ProgressButton :btn="{'word': 'ホームへ', 'show': false, 'to': '/home'}" />
+                <ProgressButton :btn="{'word': 'ホームへ', 'show': false, 'func': 'home', 'to': '/home'}" />
             </div>
         </div>
     </b-container>

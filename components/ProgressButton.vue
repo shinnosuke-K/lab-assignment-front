@@ -12,8 +12,13 @@ export default {
     methods: {
         save() {
             console.log(this.btn)
-            return false
-            this.$router.replace({path: this.btn.to})
+            this.$store.dispatch('pressButton', { 'func':this.btn.func})
+            .then((res) => {
+                console.log(res)
+                if (res) {
+                    this.$router.replace({path: this.btn.to})
+                }
+            })
         }
     }
 }

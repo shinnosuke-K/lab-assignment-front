@@ -16,7 +16,7 @@
                 </nuxt-link>
 
                 <div class="btn">
-                    <ProgressButton :btn="{'word': '保存', 'show': false, 'func': 'saveLav', 'to': '/home'}"/>
+                    <ProgressButton :btn="{'word': '保存', 'show': false, 'func': 'fixLab', 'to': '/home'}"/>
                 </div>
             </div>
         </div>

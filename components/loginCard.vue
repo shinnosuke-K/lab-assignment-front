@@ -28,14 +28,16 @@ export default {
         async onClick() {
             await this.$auth.loginWith('local', {data: this.form})
             .then((res) => {
-                this.$store.dispatch('getQuestionState')
+                // this.$store.dispatch('getQuestionState')
 
                 console.log(res)
 
                 if (res.data.user.entered) {
+                    this.$store.dispatch('getQuestionState')
                     this.$router.replace({path: '/home'})
                     return
                 }
+                this.$store.dispatch('getDefaultQuestionState')
                 this.$router.replace({path: '/lab'})
                 return
 
